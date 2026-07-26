@@ -14,7 +14,7 @@ public class JwtProperties {
      */
     private String adminSecretKey;
     private long adminTtl;
-    private String adminTokenName;
+    private String adminTokenName;  //前端传递JWT时使用的请求头名称
 
     /**
      * 用户端微信用户生成jwt令牌相关配置

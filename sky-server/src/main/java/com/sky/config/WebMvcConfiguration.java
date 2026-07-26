@@ -42,18 +42,18 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @return
      */
     @Bean
-    public Docket docket() {
+    public Docket docket() {//Swagger是一个自动生成 API 接口文档的工具
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("苍穹外卖项目接口文档")
                 .version("2.0")
                 .description("苍穹外卖项目接口文档")
                 .build();
-        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)//Docket是 Swagger 提供的一个配置类，你可以把它理解成“API文档的总控开关”
                 .apiInfo(apiInfo)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sky.controller"))
-                .paths(PathSelectors.any())
-                .build();
+                .select()//进入选择器模式，一步步筛选
+                .apis(RequestHandlerSelectors.basePackage("com.sky.controller"))//扫描这个包
+                .paths(PathSelectors.any())//扫描这个路径
+                .build();//退出选择器模式，把筛选结果打包成docket对象
         return docket;
     }
 
